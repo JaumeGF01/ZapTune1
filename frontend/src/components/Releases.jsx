@@ -6,22 +6,19 @@ import {
 } from '../api/releases';
 
 export default function ReleasesTabs({onOpenPanel}) {
-  // Definimos las pestañas con sus claves
   const tabs = [
     { key: 'ultimo',  label: 'Últimos Lanzamientos' },
     { key: 'all',     label: 'Explorar' },
     { key: 'popular', label: 'Más Escuchados' }
   ];
 
-  // Estado combinado para evitar undefined
   const [data, setData] = useState({
     ultimo: [],
     all: [],
     popular: []
   });
-  const [selected, setSelected] = useState(tabs[0].key); // por defecto 'latest'
+  const [selected, setSelected] = useState(tabs[0].key);
 
-  // Carga de datos
   useEffect(() => {
     ultimos().then(ultimo => setData(prev => ({ ...prev, ultimo })));
     getReleases().then(all     => setData(prev => ({ ...prev, all })));
@@ -30,12 +27,10 @@ export default function ReleasesTabs({onOpenPanel}) {
 
   const storage = 'http://127.0.0.1:8000/storage/';
 
-  // Seleccionamos el array actual o un array vacío si no existe
   const current = data[selected] || [];
 
   return (
     <div className="">
-      {/* Menú horizontal de pestañas */}
       <div className="flex  mb-2 border-b bg-black w-screen justify-evenly p-2">
         {tabs.map(tab => (
           <button
@@ -50,7 +45,6 @@ export default function ReleasesTabs({onOpenPanel}) {
         ))}
       </div>
 
-      {/* Contenido según pestaña seleccionada */}
       <div className="flex flex-wrap justify-between max-w-5/6 mx-auto">
         {current.map(lanzamiento => (
           <div

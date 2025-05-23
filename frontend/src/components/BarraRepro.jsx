@@ -3,7 +3,6 @@ import { getReleases } from '../api/releases';
 import { FaPlay, FaPause, FaForward, FaBackward, FaRandom, FaRedo, FaHeart, FaList, FaAlignLeft } from 'react-icons/fa';
 
 export default function PlayerBar() {
-  // Estado interno de la lista de pistas
   const [playlist, setPlaylist] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);

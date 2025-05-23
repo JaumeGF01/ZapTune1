@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { FaPlay,FaPause } from 'react-icons/fa';
-import PlayerBar from './BarraRepro';
-import { getReleases } from '../api/releases';
-import BarraRepro from './BarraRepro';
+
 
 export default function Lanzamiento({ lanz, onOpenPanel }) {
-    // const { currentSong, isPlaying, setIsPlaying, setCurrentSong } = BarraRepro(state => state);
   if (!lanz) return null;
   const storageBase = 'http://127.0.0.1:8000/storage/';
   const src = `${storageBase}${lanz.cancion}`;
@@ -14,7 +11,6 @@ export default function Lanzamiento({ lanz, onOpenPanel }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Crea un objeto Audio para obtener la metadata sin renderizar <audio>
   useEffect(() => {
     const audio = new Audio(src);
     audioRef.current = audio;

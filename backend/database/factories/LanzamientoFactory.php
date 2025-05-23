@@ -12,7 +12,6 @@ class LanzamientoFactory extends Factory
 
     public function definition()
     {
-        // Obtener o crear un artista
         $artista = Usuario::where('rol', 'artista')->inRandomOrder()->first() ?? Usuario::factory()->create(['rol' => 'artista']);
 
         return [

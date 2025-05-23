@@ -17,9 +17,7 @@ export default function Artista({ artista , onOpenPanel}) {
 
   return (
     <div>
-      {/* Cabecera del artista */}
       <div className="flex flex-col items-start space-x-4 mb-6">
-        {/* Su avatar, si lo tienes */}
         
           <img
             src={`${artista.avatar}`}
@@ -29,14 +27,12 @@ export default function Artista({ artista , onOpenPanel}) {
         
         <div>
           <h2 className="text-2xl font-bold">{artista.nombre}</h2>
-          {/* Aquí podrías añadir más campos, e.g. descripción */}
         </div>
         <p>{artista.bio}</p>
       </div>
       
       <hr className="mb-4" />
 
-      {/* Listado de sus lanzamientos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
         {releases.map(r => (
           <div 

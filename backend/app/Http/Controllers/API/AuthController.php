@@ -47,7 +47,6 @@ class AuthController extends Controller
             ]);
         }
 
-        // Opcional: revocar tokens anteriores
         $user->tokens()->delete();
 
         $token = $user->createToken('token-mvp')->plainTextToken;

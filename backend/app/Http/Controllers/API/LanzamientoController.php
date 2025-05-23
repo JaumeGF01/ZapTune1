@@ -13,7 +13,6 @@ class LanzamientoController extends Controller
         return Lanzamiento::with('artista')->get();
     }
 
-    //Almacena un nuevo lanzamiento.
     public function store(Request $request)
     {
         if (!$request->user()) {
@@ -40,7 +39,6 @@ class LanzamientoController extends Controller
         return response()->json($lanzamiento, 201);
     }
 
-    //Muestra un lanzamiento específico.
     public function show($id){
         return Lanzamiento::with('artista')->findOrFail($id);
     }
@@ -52,7 +50,6 @@ class LanzamientoController extends Controller
         return Lanzamiento::with('artista')->orderBy('reproducciones', 'desc')->take(5)->get();
     }
 
-    //Actualiza el tipo de un lanzamiento.
     public function update(Request $request, $id)
     {
         $lanz = Lanzamiento::findOrFail($id);
@@ -71,14 +68,4 @@ class LanzamientoController extends Controller
         Lanzamiento::destroy($id);
         return response()->noContent();
     }
-
-    // /**
-    //  * Incrementa el contador de reproducciones.
-    //  */
-    // public function play($id)
-    // {
-    //     $lanz = Lanzamiento::findOrFail($id);
-    //     $lanz->increment('reproducciones');
-    //     return response()->json(['reproducciones' => $lanz->reproducciones]);
-    // }
 }
