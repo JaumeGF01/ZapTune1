@@ -1,0 +1,46 @@
+@import "tailwindcss";
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.logo{
+    position: absolute;
+    height: 120px;
+    filter: drop-shadow(3px 3px 7px);
+}
+header{
+    box-shadow: 2px 2px 10px;
+}
+.swiper-pagination-bullet{
+    background-color: white;
+}
+.swiper-pagination-bullet-active{
+    background-color: rgb(255, 213, 0);
+}
+
+.panel{
+    background-image: url('assets/rayo.svg');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.panelLeft{
+    background-image: url('assets/logoM_Oscuro.svg');
+    background-size: 300%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+form input,form textarea{
+    outline: none;
+}
+form input:focus,form textarea:focus{
+    border-color: rgb(255, 210, 0);
+}
+form button{
+    background-color: rgb(255, 210, 0);
+    color: black;
+}
+form button:hover{
+    background-color: rgb(255, 220, 64);
+    transition: background-color 0.3s ease-in-out;
+}
